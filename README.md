@@ -1,4 +1,4 @@
-# 📱 Widget TikTok / YouTube / Discord — por CDP
+# 📱 Widget TikTok / YouTube / Discord e MAIS! — por CDP
 
 ## Introdução
 
