@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil TikTok - Retângulo</title>
+</head>
+<body>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zain&display=swap" rel="stylesheet">
+    <style>
+        .tiktok-profile {
+            width: auto;  /* Ajuste o valor em % para tornar o componente responsivo */
+            max-width: 400px; /* Limita a largura máxima da div */
+            height: 200px;
+            min-height: 200px; /* Define a altura mínima da div */
+            border-radius: 10px;
+            display: flex;
+            gap: 20px; /* Espaço entre os elementos */
+            border: 2px solid rgb(156, 156, 156);
+            background-color: #ffffff;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .tiktok-profile:hover {
+            border: 2px solid rgb(255, 0, 111);
+            opacity: 1;
+        }
+
+        .tiktok-profile #perfil {
+            width: 50%; /* Ajusta a imagem para ocupar metade do espaço disponível */
+            height: auto;
+            border-radius: 50%;
+            transition: all 0.3s;
+            opacity: 0.8;
+        }
+
+        .tiktok-profile #perfil:hover {
+            border-radius: 10px;
+            opacity: 1;
+            border-right: 2px solid rgb(255, 0, 111);
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;  /* Permite que a div .info ocupe o restante do espaço */
+        }
+
+        .tiktok-profile .username {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 2rem; /* Ajuste o tamanho do texto com unidade relativa */
+            font-weight: bold;
+            color: rgb(35, 35, 35);
+            border-radius: 5px;
+        }
+
+        .tiktok-profile .name {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 2rem; /* Ajuste o tamanho do texto com unidade relativa */
+            font-weight: bold;
+            color: rgb(35, 35, 35);
+            border-radius: 5px;
+        }
+
+        .tiktok-profile .followers {
+            font-family: 'Zain', sans-serif;
+            font-size: 1rem; /* Ajuste o tamanho do texto com unidade relativa */
+            color: rgb(35, 35, 35);
+            border-radius: 5px;
+            text-decoration: underline rgb(255, 0, 111);
+        }
+
+        #tiktok-link {
+            text-decoration: none;
+        }
+
+        #tiktok-logo {
+            width: 25px;
+            height: auto;
+            transition: all 0.3s;
+            opacity: 0.8;
+            transform: scale(1);
+        }
+
+        #tiktok-logo:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .tiktok-profile #tiktok-logo {
+            opacity: 0;
+            animation: none;
+        }
+
+        .tiktok-profile:hover #tiktok-logo {
+            opacity: 1;
+            animation: rotate 1.5s infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Estilo para modo escuro */
+        @media (prefers-color-scheme: dark) {
+            .tiktok-profile {
+                background-color: #000000;
+            }
+
+            .tiktok-profile .username {
+                color: rgb(192, 192, 192);
+            }
+            .tiktok-profile .followers {
+                color: rgb(126, 126, 126);
+            }
+        }
+    </style>
+</head>
+
+<a href="https://www.youtube.com/@caixa-brasil" id="tiktok-link">
+    <div class="tiktok-profile" id="tiktok-profile">
+        <!-- Imagem de perfil -->
+        <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/5f13c1140845fa6505ce33996fdf523b~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=e9806f12&x-expires=1741356000&x-signature=pcZvaMTNVN0vqNghU6w082LkfdY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=maliva" alt="Foto de Perfil" id="perfil">
+        
+        <!-- Informações do perfil -->
+        <div class="info">
+            <div class="username"><h5>{Nome de usuario alterado dinamicamente}</h5></div>
+            <div class="followers"><p>Seguindo: {Inserir seguidores!}</p></div>
+            <div class="followers"><p>Seguidores: {Inserir seguidores!}</p></div>
+            <div class="followers"><p>Curtidas: {Inserir curtidas!}</p></div>
+            <img src="" alt="Logo" id="tiktok-logo">
+        </div>
+    </div>
+</a>
+<script>
+
+// Função para atualizar a imagem do logo com base no link
+function updateLogo() {
+    var link = document.getElementById('tiktok-link').href;  // Obtém o href do link
+    var card = document.getElementById('tiktok-profile');  // Seleciona a imagem do logo
+
+    if (link.includes('tiktok')) {
+        card.innerHTML = `
+        <!-- Imagem de perfil -->
+        <img src="https://yt3.googleusercontent.com/XHFY-Hei8xYhYfrGsyaSOVf0UM9eWEj_uhDlwkG7o-PVGieIE7schRjHr2Kxrx-IL1lRNpODnw=s160-c-k-c0x00ffffff-no-rj" alt="Foto de Perfil" id="perfil">
+        
+        <!-- Informações do perfil -->
+        <div class="info">
+            <div class="username"><h5>{Nome de usuario alterado dinamicamente}</h5></div>
+            <div class="followers"><p>Seguindo: {Inserir seguidores!}</p></div>
+            <div class="followers"><p>Seguidores: {Inserir seguidores!}</p></div>
+            <div class="followers"><p>Curtidas: {Inserir curtidas!}</p></div>
+            <img src="" alt="Logo do TikTok" id="tiktok-logo">
+        </div>
+        `;
+        var logo = document.getElementById('tiktok-logo');  // Seleciona a imagem do logo
+        logo.src = 'https://pngimg.com/uploads/tiktok/tiktok_PNG4.png';  // Atualiza a imagem para o logo do TikTok
+    } else if (link.includes('youtube')) {
+        card.innerHTML = `
+        <!-- Imagem de perfil -->
+        <img src="https://yt3.googleusercontent.com/XHFY-Hei8xYhYfrGsyaSOVf0UM9eWEj_uhDlwkG7o-PVGieIE7schRjHr2Kxrx-IL1lRNpODnw=s160-c-k-c0x00ffffff-no-rj" alt="Foto de Perfil" id="perfil">
+        
+        <!-- Informações do perfil -->
+        <div class="info">
+            <div class="username"><h5>{Nome de usuario alterado dinamicamente}</h5></div>
+            <div class="followers"><p>Inscritos: {Inserir inscritos!}</p></div>
+            <div class="followers"><p>Videos: {Inserir quantidade de videos!}</p></div>
+            <img src="" alt="Logo do Youtube" id="tiktok-logo">
+        </div>
+        `;
+        var logo = document.getElementById('tiktok-logo');  // Seleciona a imagem do logo
+        logo.src = 'https://cdn.freebiesupply.com/logos/large/2x/youtube-icon-logo-png-transparent.png';  // Atualiza a imagem para o logo do YouTube
+    } else if (link.includes('discord')) {
+        card.innerHTML = `
+        <!-- Imagem de perfil -->
+        <img src="https://yt3.googleusercontent.com/XHFY-Hei8xYhYfrGsyaSOVf0UM9eWEj_uhDlwkG7o-PVGieIE7schRjHr2Kxrx-IL1lRNpODnw=s160-c-k-c0x00ffffff-no-rj" alt="Foto de Perfil" id="perfil">
+        
+        <!-- Informações do perfil -->
+        <div class="info">
+            <div class="name"><h5>{inserir Nome do servidor}</h5></div>
+            <div class="followers"><p>Membros do servidor: {Inserir quantidade de membros!}</p></div>
+            <img src="" alt="Logo do Discord" id="tiktok-logo">
+        </div>
+        `;
+        var logo = document.getElementById('tiktok-logo');  // Seleciona a imagem do logo
+        logo.src = 'https://static.vecteezy.com/system/resources/previews/018/930/500/non_2x/discord-logo-discord-icon-transparent-free-png.png';  // Atualiza a imagem para o logo do YouTube
+    } 
+}
+// Chama a função para atualizar a imagem do logo
+updateLogo();
+    // Função para extrair o nome do usuário a partir do href
+    function updateUsername() {
+        var link = document.getElementById('tiktok-link').href;  // Obtém o href do link
+        var username = link.split('@')[1];  // Divide a URL e pega a parte após '@'
+        var usernameDiv = document.querySelector('.username');  // Seleciona a div do nome de usuário
+        usernameDiv.textContent = username;  // Atualiza o conteúdo da div com o nome do usuário
+    }
+
+    // Chama a função para atualizar o nome de usuário
+    updateUsername();
+</script>
+
+</body>
+</html>
